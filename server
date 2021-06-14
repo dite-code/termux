@@ -1,0 +1,6 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+printf "User:";
+printf $(whoami);
+printf "\n";
+
