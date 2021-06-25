@@ -1,6 +1,41 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-printf "User:";
-printf $(whoami);
+red=$'\e[1;31m'
+grn=$'\e[1;32m'
+yel=$'\e[1;33m'
+blu=$'\e[1;34m'
+mag=$'\e[1;35m'
+cyn=$'\e[1;36m'
+end=$'\e[0m'
+
+clear
+
+case $1 in
+	"start")
+		sshd;
+		printf "SSH ${grn}Start${end}\n";
+
+	;;
+
+	"stop")
+
+		printf "Server ${red}Stop${end}\n"
+	;;
+
+	"status")
+		if pidof sshd >/dev/null
+		then
+			printf "SSH ${grn}Running${end}\n";
+		else
+			printf "SSH ${red}Stop${end}\n";
+		fi
+		
+	;;
+
+	*)
+		printf "Kosong\n";
+	;;
+esac
+
 printf "\n";
 
