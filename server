@@ -14,11 +14,10 @@ case $1 in
 	"start")
 		sshd;
 		printf "SSH ${grn}Start${end}\n";
-
 	;;
 
 	"stop")
-
+		pkill -9 sshd
 		printf "Server ${red}Stop${end}\n"
 	;;
 
@@ -37,6 +36,7 @@ case $1 in
                 pkg install -y python
                 pkg install -y git
 		pkg install -y curl
+		pkg install -y php
 		pkg install -y openssh
 		ln -s /data/data/com.termux/files/home/termux/server /data/data/com.termux/files/usr/bin/server
 	;;
